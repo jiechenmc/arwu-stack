@@ -3,7 +3,7 @@ import pandas as pd
 year = 2022
 workbook = f"ARWU subject {year}-all subjects.xlsx"
 
-all_dfs = pd.read_excel(workbook, sheet_name=None)
+all_dfs = pd.read_excel(workbook, sheet_name=None, index_col=0)
 sheets = list(all_dfs.keys())
 
 master = pd.DataFrame()
@@ -17,4 +17,4 @@ for i in range(len(sheets)):
 
     master = pd.concat([master, curr])
 
-master.to_excel(f"{year}-stacked.xlsx", index=False)
+master.to_excel(f"{year}_stacked.xlsx", index=False)
